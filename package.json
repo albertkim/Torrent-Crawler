@@ -14,6 +14,8 @@
     "debug": "~0.7.4",
     "hjs": "*",
     "less-middleware": "0.1.15",
-    "mongoose": "*"
+    "mongoose": "*",
+    "cheerio": "*",
+    "request": "*"
   }
 }

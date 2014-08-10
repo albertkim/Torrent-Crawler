@@ -5,31 +5,41 @@ var ViewData = (function(){
 
 	var init = function(settings){
 		console.log("ViewData init");
+		console.log(settings);
 		var defaults = {
 
 		};
 		$.extend(config, defaults, settings);
 
+		// Set delete handlers
+		$("").on("click", function(){
+
+		});
+
 		// Set handler for form submit button
 		$("#testSubmitButton").on("click", function(){
-			var title = $("#testNameInput").val();
-			var magnet = $("#testMagnetInput").val();
-			console.log("Test submit button clicked");
+			var title = $("#titleInput").val();
+			var magnet = $("#magnetInput").val();
+			var seeders = $("#seedersInput").val();
+			var leechers = $("#leechersInput").val();
+			var ips = $("#ipsInput").val();
 			$.ajax({
 				url: "/viewDataActions",
 				type: "POST",
 				data: {
 					title: title,
-					magnet: magnet
+					magnet: magnet,
+					seeders: seeders,
+					leechers: leechers,
+					ips: ips
 				},
 				success: function(data){
 					// Expected: all table results in JSON format
 					console.log("Success");
 					console.log(data);
 					// For now, just refresh the page
-					// location.reload();
-					// Later, re-render the table with the json data, using Handlebars.js
-
+					location.reload();
+					// Later, re-render the table with the json data, using Handlebars.js?
 				}
 			});
 		});

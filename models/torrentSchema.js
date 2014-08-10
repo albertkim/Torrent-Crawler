@@ -1,12 +1,12 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var torrentsSchema = new Schema({
-	id: Number,
+var torrentSchema = new Schema({
+	title: String,
 	magnet: String,
 	seeders: Number,
 	leechers: Number,
-	title: String
+	ips: Number,
 });
 
-mongoose.model("torrents", torrentsSchema);
+mongoose.model("torrents", torrentSchema);

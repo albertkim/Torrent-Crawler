@@ -12,6 +12,7 @@ var fs = require('fs');
 var routes = require('./routes');
 var users = require('./routes/user');
 var crawl = require("./routes/crawl");
+var crawlActions = require("./routes/crawlActions");
 var viewData = require("./routes/viewData");
 var viewDataActions = require("./routes/viewDataActions");
 var viewCharts = require("./routes/viewCharts");
@@ -51,6 +52,7 @@ app.get("/viewDataActions", viewDataActions.get);
 app.get("/viewCharts", viewCharts.init);
 // Post methods
 app.post("/viewDataActions", viewDataActions.post);
+app.post("/crawlActions", crawlActions.post);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

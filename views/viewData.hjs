@@ -31,6 +31,7 @@
             <tr>
               <th>Id</th>
               <th>Title</th>
+              <th>Magnet</th>
               <th>Seeders</th>
               <th>Leechers</th>
               <th>Ips</th>
@@ -38,16 +39,40 @@
             </tr>
           </thead>
           <tbody>
-          	{{data}}
+		       	{{#data}}
+		       		<tr>
+		         		<td>{{_id}}</td>
+		         		<td>{{title}}</td>
+		         		<td>{{magnet}}</td>
+		         		<td>{{seeders}}</td>
+		         		<td>{{leechers}}</td>
+		         		<td>{{ips}}</td>
+		         		<td>
+									<div class="dropdown" style="width: 80px;">
+									  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+									    Actions <span class="caret"></span>
+									  </a>
+									  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="width: 80px;">
+									    <li id="editOption" role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+									    <li id="linkOption" role="presentation"><a role="menuitem" tabindex="-1" href="#">Link</a></li>
+									    <li id="deleteOption" role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
+									  </ul>
+									</div>
+		         		</td>
+		       		</tr>
+		       	{{/data}}
+         		<!-- Inputs for testing -->
+         		<tr>
+	         		<td><input id="idInput" type="text" class="form-control"/></td>
+	         		<td><input id="titleInput" type="text" class="form-control"/></td>
+	         		<td><input id="magnetInput" type="text" class="form-control"/></td>
+	         		<td><input id="seedersInput" type="text" class="form-control"/></td>
+	         		<td><input id="leechersInput" type="text" class="form-control"/></td>
+	         		<td><input id="ipsInput" type="text" class="form-control"/></td>
+	         		<td>options</td>
+         		</tr>
           </tbody>
         </table>
-        <!-- Inputs for CRUD testing -->
-        <div class="input-group">
-          <input id="testNameInput" type="text" class="form-control" placeholder="Test torrent name"/>
-        </div>
-        <div class="input-group">
-          <input id="testMagnetInput" type="text" class="form-control" placeholder="Test magnet hash"/>
-        </div>
         <!-- Button functionality is set in viewData.js due to it's ajax functionality -->
         <button id="testSubmitButton" type="button" class="btn btn-default navbar-btn">Submit</button>
       </div>
@@ -55,7 +80,7 @@
   </body>
   <script type="text/javascript">
     $(document).ready(function(){
-      ViewData.init({});
+      ViewData.init();
     });
   </script>
 </html>
