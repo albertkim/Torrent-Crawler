@@ -3,26 +3,27 @@
   <head>
     <title>Torrent Crawler</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </head>
   <body>
   	<div class="jumbotron">
   		<div class="container">
 	  		<h1>Torrent Crawler</h1>
 	  		<p>View stored torrent statistics, integrate with your sales data, and gain new insight into consumer behavior.</p>
+        <a href="/crawl" class="btn btn-lg btn-outline">
+          Start a web crawl
+        </a>
+        <a href="/viewData" class="btn btn-lg btn-outline">
+          View current crawl data
+        </a>
+        <a href="/viewCharts" class="btn btn-lg btn-outline">
+          View data charts
+        </a>
   		</div>
   	</div>
   	<div class="container">
-	  	<a href="/crawl" class="btn btn-lg btn-outline">
-	  		Start a web crawl
-	  	</a>
-	  	<a href="/viewData" class="btn btn-lg btn-outline">
-	  		View current crawl data
-	  	</a>
-	  	<a href="/viewCharts" class="btn btn-lg btn-outline">
-	  		View data charts
-	  	</a>
+      
   	</div>
   </body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Torrent Crawler</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/viewData.js"></script>
+  </head>
+  <body>
+  	<div class="jumbotron">
+  		<div class="container">
+	  		<h2>Torrent Crawler</h2>
+        <a href="/crawl" class="btn btn-lg btn-outline">
+          Start a web crawl
+        </a>
+        <a href="/viewData" class="btn btn-lg btn-outline">
+          View current crawl data
+        </a>
+        <a href="/viewCharts" class="btn btn-lg btn-outline">
+          View data charts
+        </a>
+  		</div>
+  	</div>
+  	<div class="container">
+      <h2>Torrent Data</h2>
+      <div class="table-responsive">
+        <!-- Main torrent data table -->
+        <table id="torrentTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Seeders</th>
+              <th>Leechers</th>
+              <th>Ips</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+          	{{data}}
+          </tbody>
+        </table>
+        <!-- Inputs for CRUD testing -->
+        <div class="input-group">
+          <input id="testNameInput" type="text" class="form-control" placeholder="Test torrent name"/>
+        </div>
+        <div class="input-group">
+          <input id="testMagnetInput" type="text" class="form-control" placeholder="Test magnet hash"/>
+        </div>
+        <!-- Button functionality is set in viewData.js due to it's ajax functionality -->
+        <button id="testSubmitButton" type="button" class="btn btn-default navbar-btn">Submit</button>
+      </div>
+  	</div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      ViewData.init({});
+    });
+  </script>
+</html>

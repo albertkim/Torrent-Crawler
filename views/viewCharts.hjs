@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Torrent Crawler</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  	<div class="jumbotron">
+  		<div class="container">
+	  		<h2>Torrent Crawler</h2>
+        <a href="/crawl" class="btn btn-lg btn-outline">
+          Start a web crawl
+        </a>
+        <a href="/viewData" class="btn btn-lg btn-outline">
+          View current crawl data
+        </a>
+        <a href="/viewCharts" class="btn btn-lg btn-outline">
+          View data charts
+        </a>
+  		</div>
+  	</div>
+  	<div class="container">
+
+  	</div>
+  </body>
+</html>
