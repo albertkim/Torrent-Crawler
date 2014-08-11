@@ -23,30 +23,33 @@
   		</div>
   	</div>
   	<div class="container">
-      <h2>Torrent Data</h2>
-      <div class="table-responsive">
-        <!-- Main torrent data table -->
-        <table id="torrentTable" class="table table-striped">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Title</th>
-              <th>Magnet</th>
-              <th>Seeders</th>
-              <th>Leechers</th>
-              <th>Ips</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>
+  		<a id="deleteAllBtn" class="btn btn-lg btn-success" href="#" role="button">Delete All (Careful!)</a>
+  		<p>Note: Magnet links data is stored, just not displayed here due to their length</p>
+    	<h2>Torrent Data</h2>
+	    <div class="table-responsive">
+	      <!-- Main torrent data table -->
+	      <table id="torrentTable" class="table table-striped table-condensed">
+	        <thead>
+	          <tr>
+	            <th>Id</th>
+	            <th>Date</th>
+	            <th>Title</th>
+	            <th hidden>Magnet</th>
+	            <th>Seeders</th>
+	            <th>Leechers</th>
+	            <th>Ips</th>
+	            <th>Options</th>
+	          </tr>
+	        </thead>
+	        <tbody>
 		       	{{#data}}
 		       		<tr>
-		         		<td>{{_id}}</td>
-		         		<td>{{title}}</td>
-		         		<td>{{magnet}}</td>
-		         		<td>{{seeders}}</td>
-		         		<td>{{leechers}}</td>
-		         		<td>{{ips}}</td>
+		         		<td class="col-sm-1">{{_id}}</td>
+		         		<td class="col-sm-1">{{date}}</td>
+		         		<td class="col-sm-2">{{title}}</td>
+		         		<td class="col-sm-1">{{seeders}}</td>
+		         		<td class="col-sm-1">{{leechers}}</td>
+		         		<td class="col-sm-1">{{ips}}</td>
 		         		<td>
 									<div class="dropdown" style="width: 80px;">
 									  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
@@ -61,21 +64,21 @@
 		         		</td>
 		       		</tr>
 		       	{{/data}}
-         		<!-- Inputs for testing -->
-         		<tr>
+	       		<!-- Inputs for testing -->
+	       		<tr>
 	         		<td><input id="idInput" type="text" class="form-control"/></td>
+	         		<td><input id="dateInput" type="text" class="form-control"/></td>
 	         		<td><input id="titleInput" type="text" class="form-control"/></td>
-	         		<td><input id="magnetInput" type="text" class="form-control"/></td>
 	         		<td><input id="seedersInput" type="text" class="form-control"/></td>
 	         		<td><input id="leechersInput" type="text" class="form-control"/></td>
 	         		<td><input id="ipsInput" type="text" class="form-control"/></td>
 	         		<td>options</td>
-         		</tr>
-          </tbody>
-        </table>
-        <!-- Button functionality is set in viewData.js due to it's ajax functionality -->
-        <button id="testSubmitButton" type="button" class="btn btn-default navbar-btn">Submit</button>
-      </div>
+	       		</tr>
+	        </tbody>
+	      </table>
+	      <!-- Button functionality is set in viewData.js due to it's ajax functionality -->
+	      <button id="testSubmitButton" type="button" class="btn btn-default navbar-btn">Submit</button>
+	    </div>
   	</div>
   </body>
   <script type="text/javascript">

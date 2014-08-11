@@ -12,7 +12,22 @@ var ViewData = (function(){
 		$.extend(config, defaults, settings);
 
 		// Set delete handlers
-		$("").on("click", function(){
+		$("#deleteAllBtn").on("click", function(){
+			$.ajax({
+				url: "/viewDataActions",
+				type: "POST",
+				data: {
+					action: "deleteAll"
+				},
+				success: function(data){
+					console.log("Success");
+					location.reload();
+				}
+			});
+		});
+
+		// Set handler for delete all button
+		$().on("click", function(){
 
 		});
 
@@ -27,6 +42,7 @@ var ViewData = (function(){
 				url: "/viewDataActions",
 				type: "POST",
 				data: {
+					action: "add",
 					title: title,
 					magnet: magnet,
 					seeders: seeders,

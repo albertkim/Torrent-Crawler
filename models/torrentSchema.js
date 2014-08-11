@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var torrentSchema = new Schema({
-	time: Date,
+	date: Date,
 	title: String,
 	magnet: String,
 	seeders: Number,
