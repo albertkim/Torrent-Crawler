@@ -12,7 +12,7 @@ var Crawl = (function(){
 		$.extend(config, defaults, settings);
 
 		// Init start crawl button
-		$(".btn-lg").on("click", function(){
+		$("#startBtn").on("click", function(){
 			$.ajax({
 				url: "/crawlActions",
 				type: "POST",

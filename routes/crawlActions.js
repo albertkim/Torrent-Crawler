@@ -1,27 +1,23 @@
-var request = require('request');
+var request = require("request");
 var mongoose = require("mongoose");
 var cheerio = require("cheerio");
+var http = require("http");
+var gunzip = require("zlib").createGunzip();
 
-exports.get = function(request, response){
+exports.get = function(req, res){
 
-  response.send("get response");
+  res.send("crawlActions get call");
 };
 
-exports.post = function(request, response){
-	// Insert new table data
-	// Expected post body: {name, magnet}
-	var body = request.body;
+exports.post = function(req, res){
 	var torrentModel = mongoose.model("torrents");
-	var model = new torrentModel(body);
 
   // Web scraping functionality
   url = "http://kickass.to/tv/";
   console.log("Requesting crawl of " + url);
-  request(url, function(error, response, html){
-    if(error){
-    	console.log("Error caught during crawl");
-    	console.log(error);
-    } else{
+
+  download(url, function(html){
+  	if(html){
     	console.log("Torrent crawl completed");
       // Using cheerio will give the returned html jquery functionality
       var $ = cheerio.load(html);
@@ -29,26 +25,48 @@ exports.post = function(request, response){
       // [{title, magnet, seeders, leechers}, {...}, {...}]
       var torrents = [];
       var torrentElements = $("[id^='torrent_tv_torrents']");
-      console.log(torrentElements);
+
       torrentElements.each(function(index, element){
         var title = $(this).find(".torrentname div a").html();
         var magnet = $(this).find("[title='Torrent magnet link']").attr("href");
         var seeders = $(this).find(".green").html();
         var leechers = $(this).find(".red").html();
         var singleTorrent = {
+        	date: new Date(),
           title: title,
           magnet: magnet,
           seeders: seeders,
           leechers: leechers
         };
-        singleTorrent = torrentModel(singleTorrent);
-        console.log(singleTorrent);
-        // torrentModel.save(singleTorrent);
+        singleTorrent = new torrentModel(singleTorrent);
+        singleTorrent.save(function(error, torrent){
+        	if(error){
+        		console.log("Error when trying to save torrent");
+        		console.log(error);
+        		console.log(torrent);
+        	} else{
+        		console.log("Torrent saved");
+        	}
+        });
         torrents.push(singleTorrent);
-      });
-
-      response.send(torrents);
-      
-    }
+  		});
+  		res.send(torrents);
+  	}
   });
+
+	function download(url, callback) {
+	  http.get(url, function(res) {
+	  	res.pipe(gunzip);
+	    var data = "";
+	    gunzip.on('data', function (chunk) {
+	      data += chunk;
+	    });
+	    gunzip.on("end", function() {
+	      callback(data);
+	    });
+	  }).on("error", function() {
+	    console.log("HTTP get failed");
+	  });
+	}
+
 }

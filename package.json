@@ -16,6 +16,7 @@
     "less-middleware": "0.1.15",
     "mongoose": "*",
     "cheerio": "*",
-    "request": "*"
+    "request": "*",
+    "http": "*"
   }
 }

@@ -23,7 +23,7 @@
   		</div>
   	</div>
   	<div class="container">
-  	<a class="btn btn-lg btn-success" href="#" role="button">Start crawl!</a>
+  	<a id="startBtn" class="btn btn-lg btn-success" href="#" role="button">Start crawl!</a>
   	</div>
   </body>
   <script type="text/javascript">
