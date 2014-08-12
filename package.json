@@ -17,6 +17,7 @@
     "mongoose": "*",
     "cheerio": "*",
     "request": "*",
-    "http": "*"
+    "http": "*",
+    "underscore": "*"
   }
 }

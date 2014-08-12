@@ -23,7 +23,8 @@
   		</div>
   	</div>
   	<div class="container">
-  		<a id="deleteAllBtn" class="btn btn-lg btn-success" href="#" role="button">Delete All (Careful!)</a>
+  		<a id="deleteDayBtn" class="btn btn-lg btn-success" href="#" role="button">Delete past day's data</a>
+  		<a id="deleteAllBtn" class="btn btn-lg btn-success" href="#" role="button">Delete all (Careful!)</a>
   		<p>Note: Magnet links data is stored, just not displayed here due to their length</p>
     	<h2>Torrent Data</h2>
 	    <div class="table-responsive">
@@ -34,7 +35,6 @@
 	            <th>Id</th>
 	            <th>Date</th>
 	            <th>Title</th>
-	            <th hidden>Magnet</th>
 	            <th>Seeders</th>
 	            <th>Leechers</th>
 	            <th>Ips</th>

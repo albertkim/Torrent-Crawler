@@ -11,7 +11,7 @@ var ViewData = (function(){
 		};
 		$.extend(config, defaults, settings);
 
-		// Set delete handlers
+		// Set handler for delete all button
 		$("#deleteAllBtn").on("click", function(){
 			$.ajax({
 				url: "/viewDataActions",
@@ -26,9 +26,19 @@ var ViewData = (function(){
 			});
 		});
 
-		// Set handler for delete all button
-		$().on("click", function(){
-
+		// Set handler for delete past day button
+		$("#deleteDayBtn").on("click", function(){
+			$.ajax({
+				url: "/viewDataActions",
+				type: "POST",
+				data: {
+					action: "deleteDay"
+				},
+				success: function(data){
+					console.log("Success");
+					location.reload();
+				}
+			});
 		});
 
 		// Set handler for form submit button
